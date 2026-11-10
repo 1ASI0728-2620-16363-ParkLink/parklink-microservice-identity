@@ -1,23 +1,23 @@
-# Identity service
+# Servicio de identidad
 
-Owns ParkLink account identity, authentication and roles.
+Administra las cuentas, la autenticación y los roles de ParkLink.
 
-## Responsibilities
+## Responsabilidades
 
-- Registers users, verifies passwords and issues login sessions.
-- Stores account records and scrypt password hashes in its own PostgreSQL database.
+- Registra usuarios, verifica contraseñas y emite sesiones.
+- Guarda cuentas y contraseñas protegidas con scrypt en su propia base de datos PostgreSQL.
 
-## Technology
+## Tecnologías
 
-TypeScript, NestJS, PostgreSQL.
+TypeScript, NestJS y PostgreSQL.
 
-## C4 architecture
+## Arquitectura C4
 
-The diagram is a C4 **container view** focused on this repository and its relevant neighbors. It is generated from [Structurizr DSL](docs/architecture/workspace.dsl) using default styles, without custom colors. Arrows show the direction of an interaction; the full model also records message flows.
+El diagrama muestra una **vista de contenedores C4** centrada en este componente y sus relaciones relevantes. Se genera desde [Structurizr DSL](docs/architecture/workspace.dsl) con los estilos predeterminados, sin colores personalizados. Las flechas indican la dirección de cada interacción. El diagrama se conserva en inglés.
 
-![C4 container view: Identity service](docs/architecture/containers.svg)
+![Diagrama C4 de Servicio de identidad](docs/architecture/containers.svg)
 
-To inspect or regenerate the diagram, open `docs/architecture/workspace.dsl` in Structurizr. With the Structurizr CLI and Graphviz installed:
+Para consultar o regenerar el diagrama, abra `docs/architecture/workspace.dsl` en Structurizr. Con Structurizr CLI y Graphviz instalados:
 
 ```sh
 structurizr.sh validate -workspace docs/architecture/workspace.dsl
@@ -26,7 +26,7 @@ structurizr.sh export -workspace docs/architecture/workspace.dsl -format dot -ou
 dot -Tsvg /tmp/parklink-diagram/structurizr-Containers.dot -o docs/architecture/containers.svg
 ```
 
-## Build in the integrated workspace
+## Compilación en el espacio integrado
 
 ```sh
 npm ci
@@ -34,6 +34,6 @@ npm run build:shared
 npm run build -w @parklink/identity-service
 ```
 
-## Repository boundary
+## Relación con el proyecto
 
-This repository is a snapshot of `services/identity-service` from [parklink-platform](https://github.com/1ASI0728-2620-16363-ParkLink/parklink-platform). Use the integrated workspace for the root npm configuration, shared dependencies, Docker build context, tests and local infrastructure. The repositories do not automatically synchronize.
+Este repositorio es una copia independiente de `services/identity-service` en [parklink-platform](https://github.com/1ASI0728-2620-16363-ParkLink/parklink-platform). Use el espacio integrado para la configuración npm, las dependencias compartidas, el contexto de Docker, las pruebas y la infraestructura local. Los repositorios no se sincronizan automáticamente.
